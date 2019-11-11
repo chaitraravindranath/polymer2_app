@@ -1,0 +1,254 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/test/paper-input.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/web-animations-js/web-animations.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner-lite.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+
+<dom-module id="polymer2-app-main">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      paper-progress {
+        display: block;
+        width: 30%;
+        margin: 20px 0;
+      }
+
+      paper-tabs {
+        background-color: blue;
+        width: 50%;
+        margin-bottom: 1px;
+        color: #fff;
+      }
+
+      paper-card {
+        max-width: 500px;
+      }
+
+      .cafe-header {
+        @apply(--paper-font-headline);
+      }
+
+      .cafe-light {
+        color: var(--paper-grey-600);
+      }
+
+      .cafe-location {
+        float: right;
+        font-size: 15px;
+        vertical-align: middle;
+      }
+
+      .cafe-reserve {
+        color: var(--google-blue-500);
+      }
+
+      paper-input {
+        max-width: 300px;
+      }
+
+      paper-listbox {
+        width: 200px;
+        border: 1px dotted #ccc;
+      }
+
+      paper-item {
+        cursor: pointer;
+      }
+
+      paper-dropdown-menu {
+        width: 250px;
+      }
+
+      paper-dropdown-menu {
+        height: 200px;
+        display: block;
+      }
+
+      #container {
+        display: flex;
+      }
+
+      paper-button {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      paper-button.green:hover {
+        background-color: var(--paper-green-400);
+      }
+
+      paper-button.green {
+        background-color: var(--paper-green-500);
+        color: white;
+      }
+
+      paper-button.green[active] {
+        background-color: var(--paper-red-500);
+      }
+
+      paper-button.disabled {
+        color: black;
+        background-color: #969696;
+      }
+
+      paper-checkbox {
+        font-family: 'Roboto', sans-serif;
+        margin: 24px;
+      }
+
+      paper-checkbox.styled {
+        align-self: center;
+        border: 1px solid var(--paper-green-200);
+        padding: 8px 16px;
+        --paper-checkbox-checked-color: var(--paper-green-500);
+        --paper-checkbox-checked-ink-color: var(--paper-green-500);
+        --paper-checkbox-unchecked-color: var(--paper-green-900);
+        --paper-checkbox-unchecked-ink-color: var(--paper-green-900);
+        --paper-checkbox-label-color: var(--paper-green-500);
+        --paper-checkbox-label-spacing: 0;
+        --paper-checkbox-margin: 8px 16px 8px 0;
+        --paper-checkbox-vertical-align: top;
+      }
+    </style>
+
+    <!-- <paper-tabs selected="0">
+      <paper-tab>Tab One</paper-tab>
+      <paper-tab>Tab Two</paper-tab>
+    </paper-tabs>
+
+    <paper-input label="User Name">
+    </paper-input>
+
+    <paper-input label="Password">
+    </paper-input>
+
+    <paper-checkbox class="styled">
+      Checkbox With a long label
+    </paper-checkbox>
+    <paper-checkbox disabled>Disabled</paper-checkbox>
+
+    <br>
+    <paper-radio-button>TutorialsPoint</paper-radio-button>
+    <paper-radio-button disabled>TutorialsPoint Disabled</paper-radio-button>
+
+    <paper-dropdown-menu>
+      <paper-listbox slot="dropdown-content" selected="1">
+        <paper-item>AngularJS Tutorial</paper-item>
+        <paper-item disabled>C++ Tutorial</paper-item>
+        <paper-item>C Tutorial</paper-item>
+        <paper-item>Android Tutorial</paper-item>
+      </paper-listbox>
+    </paper-dropdown-menu>
+
+    <paper-spinner-lite active class="orange"></paper-spinner-lite>
+    </p>
+
+    <div class="container">
+      <paper-button toggles raised onclick = "toast.open()" class="green">Active</paper-button>
+      <paper-button disabled class="disabled">Disabled</paper-button>
+    </div>
+    <paper-toast id = "toast" text = "Details submitted successfully!">
+    </paper-toast>
+    <h2>Hello [[prop1]]!</h2> -->
+<iron-form id="form1">
+    <form is="iron-form" method="get" action="/" >
+      <paper-input name="name" label="Name" required></paper-input>
+      <br>
+      <input type="checkbox" name="food" value="donuts" checked> I like donuts<br>
+      <input type="checkbox" name="food" value="pizza" required> I like pizza<br>
+      <paper-checkbox name="food" value="cheese" required>I like cheese</paper-checkbox><br>
+      <paper-dropdown-menu label="Cars" name="cars" >
+        <paper-menu class="dropdown-content">
+          <paper-item value="volvo">Volvo</paper-item>
+          <paper-item value="saab">Saab</paper-item>
+          <paper-item value="fiat">Fiat</paper-item>
+          <paper-item value="audi">Audi</paper-item>
+        </paper-menu>
+      </paper-dropdown-menu>
+      <paper-button raised onclick="_submitForm()">Submit</paper-button>
+      <paper-button raised onclick="_resetForm()">Reset</paper-button>
+      <div class="output"></div>
+    </form>
+  </iron-form>
+  </template>
+
+  <script>
+
+    /**
+     * @customElement
+     * @polymer
+     */
+    class Polymer2AppMain extends Polymer.Element {
+      static get is() { return 'polymer2-app-main'; }
+
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'polymer2-app-main'
+          }
+        };
+      }
+       
+      ready() {
+       super.ready();
+       this.$.form1.addEventListener('iron-form-submit', () => {
+         console.log("Hi!");
+        //  this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+       });
+      }
+
+      _submitForm(event) {
+        // works with <button> NOT <paper-button>
+        // document.getElementById('sizeForm').submit();
+        // works with <button> or <paper-button>
+          this.$.form1.submit();
+        // Polymer.dom(event).localTarget.parentElement.submit();
+      }
+
+   _resetForm(event) {
+    // var form = Polymer.dom(event).localTarget.parentElement;
+    // form.reset();
+    // form.querySelector('.output').innerHTML = '';
+    this.$.form1.reset();
+  }
+      
+    }
+
+    window.customElements.define(Polymer2AppMain.is, Polymer2AppMain);
+
+    // Polymer({
+    //   is: 'polymer2-app-main', ready: function () {
+    //     this.async(function () {     
+    //     });
+    //   }
+    // });
+
+
+
+  </script>
+</dom-module>

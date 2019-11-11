@@ -1,7 +1,7 @@
 {
   "name": "polymer2_package",
   "version": "2.0.0",
-  "description": "",
+  "description": "My first polymer 2,0 application",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@polymer/polymer": "^2.0.0"
+    "@polymer/polymer": "^2.0.0",
+    "web-animations-js": "^2.3.2"
   }
 }

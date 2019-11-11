@@ -1,20 +1,72 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>polymer2-app</title>
-    <meta name="description" content="polymer2-app description">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="bower_components/neon-animation/web-animations.html">
+  <title>polymer2-app</title>
+  <meta name="description" content="polymer2-app description">
 
-    <!-- See https://goo.gl/OOhYW5 -->
-    <link rel="manifest" href="/manifest.json">
+  <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="import" href="/bower_components/polymer/polymer-element.html">
+  <link rel="import" href="/bower_components/polymer/polymer.html">
+  <link rel="import" href="/bower_components/paper-input/test/paper-input.html">
+  <link rel="import" href="/bower_components/paper-listbox/paper-listbox.html">
+  <link rel="import" href="/bower_components/paper-item/paper-item.html">
+  <link rel="import" href="/bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="/bower_components/paper-button/paper-button.html">
+  <link rel="import" href="/bower_components/paper-styles/paper-styles.html">
+  <link rel="import" href="/bower_components/paper-card/paper-card.html">
+  <link rel="import" href="/bower_components/paper-styles/paper-styles.html">
+  <link rel="import" href="/bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="/bower_components/paper-radio-button/paper-radio-button.html">
+  <link rel="import" href="/bower_components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="/bower_components/paper-spinner/paper-spinner-lite.html">
+  <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="/bower_components/paper-toast/paper-toast.html">
+  <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <!-- <link rel = "import" href="/src/polymer2-app-main/polymer2-app-main.html"> -->
+</head>
 
-    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+<body>
+  <!-- <polymer2-app-main></polymer2-app-main> -->
+  <form is="iron-form" method="get" action="/" id="basic">
+    <paper-input name="name" label="Name" required></paper-input>
+    <br>
+    <input type="checkbox" name="food" value="donuts" checked> I like donuts<br>
+    <input type="checkbox" name="food" value="pizza" required> I like pizza<br>
+    <paper-checkbox name="food" value="cheese" required>I like cheese</paper-checkbox><br>
 
-    <link rel="import" href="/src/polymer2-app-main/polymer2-app-main.html">
-  </head>
-  <body>
-    <polymer2-app-main></polymer2-app-main>
-  </body>
+    <paper-dropdown-menu label="Cars" name="cars" required>
+      <paper-listbox slot="dropdown-content" selected="1">
+        <paper-item value="volvo">Volvo</paper-item>
+        <paper-item value="saab">Saab</paper-item>
+        <paper-item value="fiat">Fiat</paper-item>
+        <paper-item value="audi">Audi</paper-item>
+      </paper-listbox>
+    </paper-dropdown-menu>
+    <br><br>
+    <paper-button raised onclick="_submit(event)">Submit</paper-button>
+    <paper-button raised onclick="_reset(event)">Reset</paper-button>
+    <h4>You entered the details:</h4> 
+    <div class="output"></div>
+  </form>
+  <script>
+    function _submit(event) {
+      Polymer.dom(event).localTarget.parentElement.submit();
+    }
+    function _reset(event) {
+      var form = Polymer.dom(event).localTarget.parentElement
+      form.reset();
+      form.querySelector('.output').innerHTML = '';
+    }
+    basic.addEventListener('iron-form-submit', function (event) {
+      this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+    });
+  </script>
+</body>
+
 </html>
